@@ -11,6 +11,14 @@ astro dev
 
 ## 🚀 Project Structure
 
+Here are a few ideas on how to get started with the template:
+
+- Edit this page in `src/pages/index.astro`
+- Edit the site header items in `src/components/Header.astro`
+- Add your name to the footer in `src/components/Footer.astro`
+- Check out the included blog posts in `src/pages/blog/`
+- Customize the blog post page layout in `src/layouts/BlogPost.astro`
+
 Inside of your Astro project, you'll see the following folders and files:
 
 ```

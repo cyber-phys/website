@@ -11,9 +11,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.7.2",
     "@astrojs/mdx": "^0.13.0",
+    "@astrojs/react": "^1.2.2",
     "@astrojs/rss": "^1.2.1",
-    "@astrojs/sitemap": "^1.0.0"
+    "@astrojs/sitemap": "^1.0.0",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "astro": "^1.7.2",
+    "gif.js": "^0.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-pdf": "^6.2.0",
+    "react95": "^4.0.0",
+    "styled-components": "^5.3.6"
   }
 }

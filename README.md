@@ -1,5 +1,5 @@
 # Distorted Blog
-Luc Chartiers personal blog
+Luc Chartier's personal blog
 
 ```
 yarn install

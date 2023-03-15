@@ -16,6 +16,7 @@ export default forwardRef((props: { src: string }, ref) => {
   gif.on("finished", (blob) => {
     // Save GIF as a link
     const link = document.createElement("a");
+    link.addEventListener("click", () => URL.revokeObjectURL(link.href));
     link.href = URL.createObjectURL(blob);
     link.download = "animation.gif";
     ref.current.appendChild(link);

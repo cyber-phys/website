@@ -9,7 +9,7 @@ export default forwardRef((props: { src: string, colors: string[] }, ref) => {
   const gif = new GIF({
     workers: 1, // number of worker threads to use
     quality: 10, // quality of the GIF, from 1 (lowest) to 10 (highest)
-    delay: 1,
+    delay: 100,
     repeat: -1,
     debug: true
   });
@@ -69,7 +69,7 @@ export default forwardRef((props: { src: string, colors: string[] }, ref) => {
           const light = (imageData.data[4 * i] + imageData.data[4 * i + 1] + imageData.data[4 * i + 2]) / (256 * 3);
           ctx.fillStyle = palette[~~(light * palette.length)];
           ctx.fillRect(i % width, ~~(i / width), 1, 1);
-          if (step % 8000 === 0) {
+          if (step % 800 === 0) {
             await new Promise((r) => requestAnimationFrame(r));
           }
         }

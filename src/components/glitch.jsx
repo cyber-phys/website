@@ -14,6 +14,7 @@ WindowHeader } from 'react95';
 import styled from 'styled-components';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import original from 'react95/dist/themes/original';
+import { ChromePicker, PhotoshopPicker } from 'react-color';
 
 function Glitch() {
 const [isFilePicked, setIsFilePicked] = useState(false);
@@ -48,9 +49,6 @@ const handelSaveClick = (event) => {
   document.body.removeChild(a);
 };
 
-// Using React95 components create a window that contains the Dither component.
-// Have color picker that looks like the one used in MS Paint. 
-// The color picker should have have 2 rows of 8 colors, and be position at the bottom of the window.
 return (
     <div>
     <ThemeProvider theme={original}>
@@ -89,7 +87,7 @@ return (
 }
 
 const ColorPicker = () => {
-  const colors = [
+  const [colors, setColors] = useState([
     '#000000',
     '#808080',
     '#800000',
@@ -106,23 +104,78 @@ const ColorPicker = () => {
     '#00FFFF',
     '#0000FF',
     '#FF00FF',
-  ];
+  ]);
+
+  const [selectedColorIndex, setSelectedColorIndex] = useState(null);
+  const [currentColor, setCurrentColor] = useState('');
+  const [showColorPicker, setShowColorPicker] = useState(false);
+
+  const handleColorClick = (index) => {
+    setSelectedColorIndex(index);
+    setCurrentColor(colors[index]);
+    setShowColorPicker(true);
+  };
+
+  const handleColorChange = (color) => {
+    setCurrentColor(color.hex);
+  };
+
+  const handleApply = () => {
+    setColors((prevColors) =>
+      prevColors.map((color, index) =>
+        index === selectedColorIndex ? currentColor : color
+      )
+    );
+    setShowColorPicker(false);
+  };
+
+  const handleCancel = () => {
+    setShowColorPicker(false);
+  };
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', width: '160px' }}>
-      {colors.map((color, index) => (
-        <Button
-          key={index}
-          square
-          style={{
-            width: '20px',
-            height: '20px',
-            backgroundColor: color,
-            borderColor: color,
-          }}
-        />
-      ))}
+    <div style={{ position: 'relative' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', width: '160px' }}>
+        {colors.map((color, index) => (
+          <Button
+            key={index}
+            square
+            onClick={() => handleColorClick(index)}
+            style={{
+              width: '20px',
+              height: '20px',
+              backgroundColor: color,
+          borderColor: color,
+        }}
+      />
+    ))}
+  </div>
+  {showColorPicker && (
+    <div
+      style={{
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        zIndex: 100,
+      }}
+    >
+            <ThemeProvider theme={original}>
+    <Window style={{ maxWidth: '1000px' }}>
+      <ChromePicker
+        color={currentColor}
+        onChange={handleColorChange}
+        disableAlpha
+      />
+        <Button onClick={handleApply} style={{ marginRight: '1rem' }}>
+          Apply
+        </Button>
+        <Button onClick={handleCancel}>Cancel</Button>
+        </Window>
+        </ThemeProvider>
     </div>
+  )}
+  </div>
   );
 };
 

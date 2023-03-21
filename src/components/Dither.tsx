@@ -1,5 +1,5 @@
 import { getSetCookiesFromResponse } from "astro/dist/core/cookies";
-import { useEffect, useRef, useState, forwardRef} from "react";
+import { useEffect, useRef, useState, forwardRef, useLayoutEffect} from "react";
 import GIF from "gif.js";
 
 const gcd = (a: number, b: number): number => (b ? gcd(b, a % b) : a);
@@ -21,6 +21,12 @@ export default forwardRef((props: { src: string, colors: string[] }, ref) => {
     link.download = "animation.gif";
     ref.current.appendChild(link);
   });
+
+  const colorsRef = useRef(props.colors);
+  useLayoutEffect(() => {
+    colorsRef.current = props.colors;
+  }, [props.colors]);
+
   useEffect(() => {
     (async () => {
       if (!ref.current) return;
@@ -52,25 +58,7 @@ export default forwardRef((props: { src: string, colors: string[] }, ref) => {
       ctx.clearRect(0, 0, width, height);
 
       const paint = async () => {
-        const palette = props.colors;
-        // const palette = [
-        //   "yellow",
-        //   "yellow",
-        //   "black",
-        //   "red",
-        //   "blue",
-        //   "purple",
-        //   "orange",
-        //   "red",
-        //   "yellow",
-        //   "yellow",
-        //   "yellow",
-        //   "orange",
-        //   "yellow",
-        //   "black",
-        //   "green",
-        //   "white"
-        // ];
+        const palette = colorsRef.current;
 
         const length = imageData.data.length / 4;
         let iDiff = 10000;

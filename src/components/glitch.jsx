@@ -22,6 +22,25 @@ const [selectedFile, setSelectedFile] = useState("/emojiGrillz.jpg");
 const fileInput = useRef();
 const dither = React.createRef();
 
+const [colors, setColors] = useState([
+  '#000000',
+  '#808080',
+  '#800000',
+  '#808000',
+  '#008000',
+  '#008080',
+  '#000080',
+  '#800080',
+  '#C0C0C0',
+  '#FFFFFF',
+  '#FF0000',
+  '#FFFF00',
+  '#00FF00',
+  '#00FFFF',
+  '#0000FF',
+  '#FF00FF',
+]);
+
 const handleFileUpload = (event) => {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -74,11 +93,11 @@ return (
         </Toolbar>
         <WindowContent style={{ padding: '0.25rem' }}>
         <ScrollView>
-        <Dither ref={dither} src={selectedFile}/>
+          <Dither ref={dither} src={selectedFile} colors={colors} />
         </ScrollView>
         </WindowContent>
         <Toolbar style={{ justifyContent: 'center', padding: '0.25rem' }}>
-            <ColorPicker />
+          <ColorPicker colors={colors} setColors={setColors} />
         </Toolbar>
     </Window>
     </ThemeProvider>
@@ -86,25 +105,8 @@ return (
 );
 }
 
-const ColorPicker = () => {
-  const [colors, setColors] = useState([
-    '#000000',
-    '#808080',
-    '#800000',
-    '#808000',
-    '#008000',
-    '#008080',
-    '#000080',
-    '#800080',
-    '#C0C0C0',
-    '#FFFFFF',
-    '#FF0000',
-    '#FFFF00',
-    '#00FF00',
-    '#00FFFF',
-    '#0000FF',
-    '#FF00FF',
-  ]);
+const ColorPicker = ({ colors, setColors }) => {
+
 
   const [selectedColorIndex, setSelectedColorIndex] = useState(null);
   const [currentColor, setCurrentColor] = useState('');

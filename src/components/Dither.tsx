@@ -4,7 +4,7 @@ import GIF from "gif.js";
 
 const gcd = (a: number, b: number): number => (b ? gcd(b, a % b) : a);
 
-export default forwardRef((props: { src: string }, ref) => {
+export default forwardRef((props: { src: string, colors: string[] }, ref) => {
   const srcRef = useRef(props.src);
   const gif = new GIF({
     workers: 1, // number of worker threads to use
@@ -52,24 +52,25 @@ export default forwardRef((props: { src: string }, ref) => {
       ctx.clearRect(0, 0, width, height);
 
       const paint = async () => {
-        const palette = [
-          "yellow",
-          "yellow",
-          "black",
-          "red",
-          "blue",
-          "purple",
-          "orange",
-          "red",
-          "yellow",
-          "yellow",
-          "yellow",
-          "orange",
-          "yellow",
-          "black",
-          "green",
-          "white"
-        ];
+        const palette = props.colors;
+        // const palette = [
+        //   "yellow",
+        //   "yellow",
+        //   "black",
+        //   "red",
+        //   "blue",
+        //   "purple",
+        //   "orange",
+        //   "red",
+        //   "yellow",
+        //   "yellow",
+        //   "yellow",
+        //   "orange",
+        //   "yellow",
+        //   "black",
+        //   "green",
+        //   "white"
+        // ];
 
         const length = imageData.data.length / 4;
         let iDiff = 10000;

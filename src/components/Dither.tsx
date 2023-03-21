@@ -129,13 +129,16 @@ export default forwardRef((props: { src: string, colors: string[] }, ref) => {
         }
       };
 
-      while (true) {
+      const animationLoop = async () => {
         await paint();
         await mess();
         if (! gif.running) {
           gif.render();
         }
-      }
+        requestAnimationFrame(animationLoop);
+      };
+
+      animationLoop();
     })();
   }, [ref.current, props.src]);
   return <div ref={ref}/>;

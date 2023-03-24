@@ -18,7 +18,7 @@ import { ChromePicker, PhotoshopPicker } from 'react-color';
 
 function Glitch() {
 const [isFilePicked, setIsFilePicked] = useState(false);
-const [selectedFile, setSelectedFile] = useState("/emojiGrillz.jpg");
+const [selectedFile, setSelectedFile] = useState("/luc.jpeg");
 const fileInput = useRef();
 const dither = React.createRef();
 

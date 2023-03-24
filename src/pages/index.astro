@@ -5,29 +5,37 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import Glitch from '../components/glitch.jsx';
 ---
+<style>
+	.navbar {
+		display: flex;
+		/* align-items: center; */
+		/* justify-content: center; */
+		/* position: fixed; */
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1;
+	}
+
+	main {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
-	<div style="display: flex; justify-content: center; align-items: center">
-
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<dev></dev>
 	<body>
-		<Header title={SITE_TITLE} />
-		<Glitch client:only/>
+		<div class='navbar'>
+			<Header title={SITE_TITLE} />
 		</div>
 		<main>
-			<!-- <iframe src="https://jspaint.app" width="100%" height="100%"></iframe> -->
-			
-			<h1>Hello, Friend!</h1>
-			<p>
-				<!-- <Glitch client:only/> -->
-				I am a engineer with a strong passion for security and artificial intelligence. I have always been fascinated by the intersection of technology and safety, 
-				and have dedicated my career to exploring and understanding the latest developments in these fields. In this blog, I will be sharing my insights, thoughts, and experiences as I navigate the exciting world of security and AI. Whether you are a fellow engineer, a security professional, 
-				or just someone who is curious about these topics, I hope you will find something here that resonates with you. Thank you for joining me on this journey!
-			</p>
+			<Glitch client:only/>
 		</main>
 		<Footer />
 	</body>

@@ -24,6 +24,11 @@
     "react-dom": "^18.0.0",
     "react-pdf": "^6.2.0",
     "react95": "^4.0.0",
+    "rehype-katex": "^7.0.0",
     "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "rehype-mathjax": "^6.0.0",
+    "remark-math": "^6.0.0"
   }
 }

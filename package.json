@@ -22,12 +22,14 @@
     "react": "^18.0.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.0.0",
+    "react-is": "^18.2.0",
     "react-pdf": "^6.2.0",
     "react95": "^4.0.0",
     "rehype-katex": "^7.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@types/react-is": "^18",
     "rehype-mathjax": "^6.0.0",
     "remark-math": "^6.0.0"
   }

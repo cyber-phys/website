@@ -585,11 +585,13 @@ __metadata:
     "@astrojs/sitemap": "npm:^1.0.0"
     "@types/react": "npm:^18.0.21"
     "@types/react-dom": "npm:^18.0.6"
+    "@types/react-is": "npm:^18"
     astro: "npm:^1.7.2"
     gif.js: "npm:^0.2.0"
     react: "npm:^18.0.0"
     react-color: "npm:^2.19.3"
     react-dom: "npm:^18.0.0"
+    react-is: "npm:^18.2.0"
     react-pdf: "npm:^6.2.0"
     react95: "npm:^4.0.0"
     rehype-katex: "npm:^7.0.0"
@@ -1032,6 +1034,15 @@ __metadata:
   dependencies:
     "@types/react": "npm:*"
   checksum: a07b900a2d5559830f88b3e525cf279f9f04b4893f4d17e64f5adb08d8abe0e3151e0d3c0ea17d836104ae47594be577529a004265600e4304a43a93b0d5d61e
+  languageName: node
+  linkType: hard
+
+"@types/react-is@npm:^18":
+  version: 18.2.4
+  resolution: "@types/react-is@npm:18.2.4"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: f1085c3c27aed16b89fac137ee3771ce161b6faa63be90e47f91a3867864c4612df24e9937d2eb621feaa84d29cb8829cf2c42f69f611fad8abc15929377e5db
   languageName: node
   linkType: hard
 
@@ -5341,6 +5352,13 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react-is@npm:18.2.0"
+  checksum: 6eb5e4b28028c23e2bfcf73371e72cd4162e4ac7ab445ddae2afe24e347a37d6dc22fae6e1748632cd43c6d4f9b8f86dcf26bf9275e1874f436d129952528ae0
   languageName: node
   linkType: hard
 

@@ -3,7 +3,7 @@ layout: '../../layouts/BlogPost.astro'
 title: "Knowledge Graphs and Ologs: Enhancing AI Safety through Debate and Ontological Commitments"
 description: "Submitted to OpenAI Superalignment Fastgrants on February 18th, 2024"
 pubDate: 2024-Feb-14 00:00:00
-heroImage: '/posts/olog/ai_debate_neon.jpeg'
+heroImage: '/posts/ai_debate/ai_debate_neon.jpeg'
 ---
 ## Short Description
 - Knowledge graphs and ontology logs (ologs) hold promise as methods for scalably verifying truthfulness in a weak-to-strong generalization model of alignment
